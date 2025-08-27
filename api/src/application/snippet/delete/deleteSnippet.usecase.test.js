@@ -1,7 +1,7 @@
 const DeleteSnippetUseCase = require("./deleteSnippet.usecase");
 
 describe("DeleteSnippetUseCase", () => {
-  it("deve deletar um snippet existente", async () => {
+  it("should delete a snippet", async () => {
     const mockRepository = { delete: jest.fn().mockResolvedValue(true) };
 
     const useCase = new DeleteSnippetUseCase(mockRepository);
@@ -11,10 +11,10 @@ describe("DeleteSnippetUseCase", () => {
     expect(mockRepository.delete).toHaveBeenCalledWith("123");
   });
 
-  it("deve lançar erro se snippet não existir", async () => {
+  it("should throw an error if snippet not found", async () => {
     const mockRepository = { delete: jest.fn().mockResolvedValue(null) };
     const useCase = new DeleteSnippetUseCase(mockRepository);
 
-    await expect(useCase.execute("999")).rejects.toThrow("Snippet não encontrado");
+    await expect(useCase.execute("999")).rejects.toThrow("Snippet not found");
   });
 });

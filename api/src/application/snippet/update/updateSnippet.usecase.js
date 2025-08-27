@@ -5,7 +5,7 @@ class UpdateSnippetUseCase {
 
   async execute(id, data) {
     const updated = await this.snippetRepository.update(id, data);
-    if (!updated) throw new Error("Snippet não encontrado");
+    if (!updated) throw new Error("Snippet not found");
     return updated;
   }
 }

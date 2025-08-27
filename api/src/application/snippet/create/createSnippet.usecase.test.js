@@ -1,7 +1,7 @@
 const CreateSnippetUseCase = require("./createSnippet.usecase");
 
 describe("CreateSnippetUseCase", () => {
-  it("deve criar um snippet válido", async () => {
+  it("should create a valid snippet", async () => {
     const mockRepository = {
       create: jest.fn().mockResolvedValue({
         id: "123",
@@ -18,10 +18,10 @@ describe("CreateSnippetUseCase", () => {
     expect(mockRepository.create).toHaveBeenCalledTimes(1);
   });
 
-  it("deve lançar erro se faltar título", async () => {
+  it("should throw an error if title is empty", async () => {
     const mockRepository = { create: jest.fn() };
     const useCase = new CreateSnippetUseCase(mockRepository);
 
-    await expect(useCase.execute({ code: "sem título" })).rejects.toThrow("Título é obrigatório");
+    await expect(useCase.execute({ code: "sem título" })).rejects.toThrow("Title is required");
   });
 });

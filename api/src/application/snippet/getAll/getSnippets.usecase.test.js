@@ -1,7 +1,7 @@
 const GetSnippetsUseCase = require("./getSnippets.usecase");
 
 describe("GetSnippetsUseCase", () => {
-  it("deve retornar uma lista de snippets", async () => {
+  it("should reutrn all snippets", async () => {
     const mockRepository = {
       findAll: jest.fn().mockResolvedValue([{ id: "1", title: "Snippet 1", code: "123" }])
     };

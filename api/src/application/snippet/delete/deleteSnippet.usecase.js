@@ -5,7 +5,7 @@ class DeleteSnippetUseCase {
 
   async execute(id) {
     const deleted = await this.snippetRepository.delete(id);
-    if (!deleted) throw new Error("Snippet não encontrado");
+    if (!deleted) throw new Error("Snippet not found");
     return true;
   }
 }

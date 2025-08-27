@@ -1,8 +1,8 @@
 class Snippet {
   constructor({ title, code, summary }) {
-    if (!title) throw new Error("Título é obrigatório");
-    if (!code) throw new Error("Código é obrigatório");
-    if (!summary) throw new Error("Summary é obrigatório");
+    if (!title) throw new Error("Title is required");
+    if (!code) throw new Error("Code is required");
+    if (!summary) throw new Error("Summary is required");
 
     this.title = title;
     this.code = code;

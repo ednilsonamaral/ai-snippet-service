@@ -5,7 +5,7 @@ class GenerateSummaryUseCase {
 
   async execute(promptFromUser) {
     if (!promptFromUser || promptFromUser.trim() === "") {
-      throw new Error("Prompt não fornecido");
+      throw new Error("Prompt not sended");
     }
 
     const prompt = `Summarize in ≤ 30 words: ${promptFromUser}`;

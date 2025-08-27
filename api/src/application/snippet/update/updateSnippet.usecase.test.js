@@ -1,7 +1,7 @@
 const UpdateSnippetUseCase = require("./updateSnippet.usecase");
 
 describe("UpdateSnippetUseCase", () => {
-  it("deve atualizar um snippet existente", async () => {
+  it("should update a snippet", async () => {
     const mockRepository = {
       update: jest.fn().mockResolvedValue({ id: "123", title: "Atualizado", code: "console.log('novo')" })
     };
@@ -13,10 +13,10 @@ describe("UpdateSnippetUseCase", () => {
     expect(mockRepository.update).toHaveBeenCalledWith("123", { title: "Atualizado" });
   });
 
-  it("deve lançar erro se snippet não existir", async () => {
+  it("should throw an error if snippet not found", async () => {
     const mockRepository = { update: jest.fn().mockResolvedValue(null) };
     const useCase = new UpdateSnippetUseCase(mockRepository);
 
-    await expect(useCase.execute("999", { title: "Novo" })).rejects.toThrow("Snippet não encontrado");
+    await expect(useCase.execute("999", { title: "Novo" })).rejects.toThrow("Snippet not found");
   });
 });

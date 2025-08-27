@@ -5,7 +5,7 @@ class GetSnippetByIdUseCase {
 
   async execute(id) {
     const snippet = await this.snippetRepository.findById(id);
-    if (!snippet) throw new Error("Snippet não encontrado");
+    if (!snippet) throw new Error("Snippet not found");
     return snippet;
   }
 }

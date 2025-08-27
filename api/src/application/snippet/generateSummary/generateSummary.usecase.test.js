@@ -1,7 +1,7 @@
 const GenerateSummaryUseCase = require("./generateSummary.usecase");
 
 describe("GenerateSummaryUseCase", () => {
-  it("deve gerar um resumo do texto enviado", async () => {
+  it("should generate a summary", async () => {
     const mockLLM = {
       chat: {
         completions: {
@@ -28,10 +28,10 @@ describe("GenerateSummaryUseCase", () => {
     );
   });
 
-  it("deve lançar erro se prompt não for fornecido", async () => {
+  it("should throw an error if prompt is empty", async () => {
     const mockLLM = { chat: { completions: { create: jest.fn() } } };
     const useCase = new GenerateSummaryUseCase(null, mockLLM);
 
-    await expect(useCase.execute("")).rejects.toThrow("Prompt não fornecido");
+    await expect(useCase.execute("")).rejects.toThrow("Prompt not sended");
   });
 });

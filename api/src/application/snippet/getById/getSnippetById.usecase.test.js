@@ -1,7 +1,7 @@
 const GetSnippetByIdUseCase = require("./getSnippetById.usecase");
 
 describe("GetSnippetByIdUseCase", () => {
-  it("deve retornar um snippet por ID", async () => {
+  it("should return a snippet", async () => {
     const mockRepository = {
       findById: jest.fn().mockResolvedValue({ id: "123", title: "Meu snippet", code: "console.log('oi')" })
     };
@@ -13,10 +13,10 @@ describe("GetSnippetByIdUseCase", () => {
     expect(mockRepository.findById).toHaveBeenCalledWith("123");
   });
 
-  it("deve lançar erro se não encontrar", async () => {
+  it("should throw an error if snippet not found", async () => {
     const mockRepository = { findById: jest.fn().mockResolvedValue(null) };
     const useCase = new GetSnippetByIdUseCase(mockRepository);
 
-    await expect(useCase.execute("999")).rejects.toThrow("Snippet não encontrado");
+    await expect(useCase.execute("999")).rejects.toThrow("Snippet not found");
   });
 });
