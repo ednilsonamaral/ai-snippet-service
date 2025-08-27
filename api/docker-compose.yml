@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  backend-db:
+    container_name: mongo-db
+    image: mongo:7
+    ports:
+      - '${DATABASE_PORT}:27017'
+    volumes:
+      - data:/data/db
+
+volumes:
+  data: {}

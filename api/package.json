@@ -1,0 +1,24 @@
+{
+  "name": "ai-snippet-service-api",
+  "version": "1.0.0",
+  "author": "Ednilson Amaral <ednilsonamaral.ti@gmail.com>",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest --watchAll --runInBand",
+    "start": "node server.js",
+    "start:local": "nodemon server.js"
+  },
+  "engines": {
+    "node": ">=20.10.0"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.0",
+    "openai": "^5.16.0"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "nodemon": "^3.1.10"
+  }
+}
